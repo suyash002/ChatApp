@@ -250,37 +250,41 @@ function loadChatList() {
 }
 
 function openChat(user) {
-  // Remove selected class from all items
-  document
-    .querySelectorAll(".chat-item")
-    .forEach((el) => el.classList.remove("selected"));
-
-  document.getElementById("chatUserInfo").innerHTML = `
-<div class="chat-user-info">
-  <img src="${user.avatar}" alt="profile" />
-  <div>
-    <h4>${user.name}</h4>
-    <p>${user.status}</p>
-  </div>
-</div>
-`;
-
-  const body = document.getElementById("chatBody");
-  body.innerHTML = "";
-
-  const userIndex = usersData.findIndex((u) => u.name === user.name); // Find index to get chatKey
-  const chatKey = `chat${userIndex + 1}`;
-  const chatData = JsonData[chatKey] || [];
-
-  chatData.forEach(({ from, msg }) => {
-    const message = document.createElement("div");
-    message.className = `message ${from.type === "user1" ? "bot" : "user"}`;
-    message.innerHTML = `<p>${msg.message}</p>`;
-    body.appendChild(message);
-  });
-
-  body.scrollTop = body.scrollHeight;
-}
+    // Remove selected class from all items
+    document.querySelectorAll(".chat-item").forEach((el) => el.classList.remove("selected"));
+  
+    // Add the selected class to the clicked item
+    const selectedItem = Array.from(document.querySelectorAll(".chat-item")).find(
+      (item) => item.querySelector("h4").textContent === user.name
+    );
+    if (selectedItem) selectedItem.classList.add("selected");
+  
+    document.getElementById("chatUserInfo").innerHTML = `
+      <div class="chat-user-info">
+        <img src="${user.avatar}" alt="profile" />
+        <div>
+          <h4>${user.name}</h4>
+          <p>${user.status}</p>
+        </div>
+      </div>
+    `;
+  
+    const body = document.getElementById("chatBody");
+    body.innerHTML = "";
+  
+    const userIndex = usersData.findIndex((u) => u.name === user.name); // Find index to get chatKey
+    const chatKey = `chat${userIndex + 1}`;
+    const chatData = JsonData[chatKey] || [];
+  
+    chatData.forEach(({ from, msg }) => {
+      const message = document.createElement("div");
+      message.className = `message ${from.type === "user1" ? "bot" : "user"}`;
+      message.innerHTML = `<p>${msg.message}</p>`;
+      body.appendChild(message);
+    });
+  
+    body.scrollTop = body.scrollHeight;
+  }
 
 const chatInput = document.getElementById("chatInput");
 const charWordCount = document.getElementById("charWordCount");
