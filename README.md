@@ -21,7 +21,7 @@ To run this project locally, follow these steps:
 
 Clone the repository:
 
-git clone https://github.com/yourusername/chat-application.git
+git clone https://github.com/suyash002/ChatApp.git
 Navigate into the project directory:
 
 cd chat-application
