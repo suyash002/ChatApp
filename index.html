@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Suyash Upadhyay">
+    <meta name="copyright" content="© 2025 Suyash Upadhyay">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat APP | Page SU</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <span>CHAT SESSION</span>
+        <span class="menu-toggle" onclick="toggleMenu()">Menu ▼</span>
+        <div class="menu-options" id="menuOptions">
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Search..."
+            style="padding: 8px; border: none; border-bottom: 1px solid #ccc"
+          />
+          <button
+            id="searchButton"
+            style="
+              padding: 8px 12px;
+              background-color: #4caf50;
+              color: white;
+              border: none;
+              cursor: pointer;
+            "
+          >
+            Search
+          </button>
+          <select
+            id="themeColor"
+            onchange="changeTheme()"
+            style="padding: 8px; border: none; border-bottom: 1px solid #ccc"
+          >
+            <option value="">Change theme</option>
+            <option value="#000000">Black</option>
+            <option value="#ff0000">Red</option>
+            <option value="#007bff">Blue</option>
+            <option value="#28a745">Green</option>
+            <option value="#ffff00">Yellow</option>
+            <option value="#808080">Grey</option>
+            <option value="#dda0dd">Plum</option>
+            <option value="#000080">Navy</option>
+            <option value="#ffc0cb">Pink</option>
+            <option value="#6f42c1">Purple</option>
+            <option value="#ff7f50">Coral</option>
+            <option value="#ffa500">Orange</option>
+            <option value="#a52a2a">Brown</option>
+            <option value="#00ffff">Cyan</option>
+            <option value="#800000">Maroon</option>
+            <option value="#808000">Olive</option>
+            <option value="#00a3ad">Default Theme</option>
+          </select>
+          <select
+            id="chatBgSelect"
+            style="padding: 8px; border: none; border-bottom: 1px solid #ccc"
+          >
+            <option
+              value="https://i.pinimg.com/originals/f5/05/24/f50524ee5f161f437400aaf215c9e12f.jpg"
+            >
+              Background 1
+            </option>
+            <option
+              value="https://w0.peakpx.com/wallpaper/818/148/HD-wallpaper-whatsapp-background-cool-dark-green-new-theme-whatsapp.jpg"
+            >
+              Background 2
+            </option>
+            <option value="https://wallpaperaccess.com/full/1288076.jpg">
+              Background 3
+            </option>
+            <option
+              value="https://i.pinimg.com/736x/78/1e/21/781e212cb0a891c6d8a3738c525e235d.jpg"
+            >
+              Background 4
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="chat-list" id="chatList"></div>
+    </div>
+    <div class="chat-window">
+      <div class="chat-header">
+        <div>Chat Details</div>
+        <div onclick="closeChat()">&times;</div>
+      </div>
+      <div id="chatUserInfo"></div>
+      <div class="chat-body" id="chatBody"></div>
+      <p id="charWordCount">Current characters:0 and current words:0</p>
+      <div class="chat-input">
+        <input
+          type="text"
+          id="chatInput"
+          placeholder="Type your message here…"
+        />
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <span style="display: none;" id="dev-identity" data-dev="Suyash_Upadhyay_2025"></span>
+  </body>
+</html>
